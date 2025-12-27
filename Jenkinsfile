@@ -12,5 +12,12 @@ pipeline {
                 echo "Unit testing is done here"
             }
         }
+        //sonar-scanner expects sonar-project.properties
+        stage('sonar scan') {
+            steps {
+                sh 'ls -lrt'
+                sh 'sonar-scanner'
+            }
+        }
     }
 }
