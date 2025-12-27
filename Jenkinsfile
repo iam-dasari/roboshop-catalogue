@@ -14,10 +14,10 @@ pipeline {
         }
         //sonar-scanner expects sonar-project.properties
         stage('sonar scan') {
+            environment {
+                PATH = "/opt/sonar-scanner/bin:${PATH}"
+            }
             steps {
-                environment {
-                    PATH = "/opt/sonar-scanner/bin:${PATH}"
-                }
                 sh 'ls -lrt'
                 sh 'sonar-scanner'
             }
